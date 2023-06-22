@@ -1,15 +1,15 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 
-#include <QObject>
-
-class Output : public QObject
+class Output
 {
     Q_OBJECT
 public:
-    explicit Output(QObject *parent = nullptr);
-
-signals:
+    Output();
+public slots:
+    onFileChanged();    // Потом лучше заменить с Changed на Updated
+    onFileCreated();
+    onFileDeleted();
 
 };
 
