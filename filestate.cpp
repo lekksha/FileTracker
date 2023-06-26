@@ -1,6 +1,6 @@
 #include "filestate.h"
 
-FileState::FileState(QString dir)
+FileState::FileState(const QString dir)
 {
     m_dir = dir;
     QFileInfo file(dir);
@@ -16,7 +16,7 @@ FileState::getSize()
 
 FileState::update()
 {
-    QFileInfo updated_file(m_dir);
+    QFileInfo updated_file(const m_dir);
     if ( m_exists && !updated_file.exists() ) // file was deleted - code 1
     {
         m_size = updated_file.size();
@@ -38,4 +38,15 @@ FileState::update()
     {
         return 0;
     }
+}
+
+FileState::operator== (const StateFile& tmp) const
+{
+    if
+    (m_dir == tmp.m_file &&     // TODO: decide whether directory comparison is enough
+    m_size == tmp.m_size &&
+    m_exists == tmp.exists)
+        return true;
+    else
+        return false;
 }

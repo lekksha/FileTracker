@@ -11,7 +11,7 @@ public:
     QList m_files;
 
     FileTracker();
-    void addFile(FileState file);   // TODO: поменять аргумент на QString с директорией файла?
+    void addFile(const FileState file);   // TODO: поменять аргумент на QString с директорией файла?
     void removeFile(FileState file);
     void update();
 signals:
