@@ -7,7 +7,7 @@ FileTracker::FileTracker()
 FileTracker::addFile(const QString dir)
 {
     FileState file_tmp = FileState(dir);
-    if (!this->contains(file_tmp))  // does not cointan argument file
+    if (!this->contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
         std::cout << file_tmp.fileName << " was added to file tracker.";
@@ -34,11 +34,7 @@ FileTracker::removeFile(const QString dir)
     }
 }
 
-FileTracker::update()
-{
-
-}
-
+/*
 FileTracker::fileChanged(FileState file)
 {
 
@@ -53,3 +49,18 @@ FileTracker::fileDeleted(FileState file)
 {
 
 }
+*/
+
+FileTracker::update()
+{
+    for (int i = 0; i < length; i++)
+    {
+        switch(m_files[i].update())
+        {
+        case 1: std::cout << m_files[i].name() << " was deleted.";  // TODO: change to fileChanged signal
+        case 2: std::cout << m_files[i].name() << " was created.";
+        case 3: std::cout << m_files[i].name() << " was changed. Current size is " << m_files[i].size() << " bytes.";
+        }
+    }
+}
+
