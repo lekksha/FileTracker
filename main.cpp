@@ -1,9 +1,10 @@
 #include <QCoreApplication>
-//#include <iostream>
+#include <QTimer>
+#include <iostream>
 #include "filetracker.h"
 #include "filestate.h"
 
-//using namespace std;
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,14 @@ int main(int argc, char *argv[])
 
     //QTimer *timer = new QTimer(this);
     //connect(timer, &QTimer::timeout, this, &Foo::processOneThing);
-с
+
+    /*
+    QTimer timer;
+    timer.setInterval(500);
+    QObject::connect(&timer, &QTimer::timeout, &test_tracker, &FileTracker::update);
+    timer.start();
+    */
 
     return a.exec();
+
 }
