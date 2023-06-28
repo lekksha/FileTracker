@@ -12,6 +12,7 @@ private:
     bool m_existance;
 public:
     FileState(const QString dir);
+    QString getFileDirectory();
     quint64 getSize();
     bool getExistanceStatus();
     //QString getFileName();    //TODO TBR

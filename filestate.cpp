@@ -8,6 +8,11 @@ FileState::FileState(const QString dir)
     m_existance = file.exists();
 }
 
+QString FileState::getFileDirectory()
+{
+    return m_dir;
+}
+
 quint64 FileState::getSize()
 {
     return m_size;
