@@ -4,15 +4,15 @@
 #include <QList>
 #include "filestate.h"
 
-class FileTracker
+class FileTracker : public QObject
 {
     Q_OBJECT
 public:
-    QList m_files;
+    QList<FileState> m_files;
 
     FileTracker();
-    void addFile(const FileState file);   // TODO: поменять аргумент на QString с директорией файла?
-    void removeFile(FileState file);
+    void addFile(const QString& dir);
+    void removeFile(const QString& dir);
     void update();
 signals:
     fileChanged(FileState file);

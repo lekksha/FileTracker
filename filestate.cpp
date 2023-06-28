@@ -5,31 +5,32 @@ FileState::FileState(const QString dir)
     m_dir = dir;
     QFileInfo file(dir);
     m_size = file.size();
-    m_exists = file.exists();
+    m_existance = file.exists();
 }
 
-FileState::getSize()
+quint64 FileState::getSize()
 {
     return m_size;
 }
 
 
-FileState::update()
+
+int FileState::update()
 {
-    QFileInfo updated_file(const m_dir);
-    if ( m_exists && !updated_file.exists() ) // file was deleted - code 1
+    QFileInfo updated_file = QFileInfo(m_dir);
+    if ( this->m_existance && !updated_file.exists() ) // file was deleted - code 1
     {
         m_size = updated_file.size();
-        m_exists = updated_file.exists();
+        m_existance = updated_file.exists();
         return 1;
     }
-    else if ( !m_exists && updated_file.exists() )    // file was created - code 2
+    else if ( !m_existance && updated_file.exists() )    // file was created - code 2
     {
         m_size = updated_file.size();
-        m_exists = updated_file.exists();
+        m_existance = updated_file.exists();
         return 2;
     }
-    else if ( (m_exists && updated_file.exists) && (m_size != updated_file.size()) )    // file was changed - code 3
+    else if ( (m_existance && updated_file.exists()) && (m_size != updated_file.size()) )    // file was changed - code 3
     {
         m_size = updated_file.size();
         return 3;
@@ -40,12 +41,12 @@ FileState::update()
     }
 }
 
-FileState::operator== (const StateFile& tmp) const
+bool FileState::operator==(const FileState &tmp) const
 {
     if
-    (m_dir == tmp.m_file &&     // TODO: decide whether directory comparison is enough
+    (m_dir == tmp.m_dir &&     // TODO: decide whether directory comparison is enough
     m_size == tmp.m_size &&
-    m_exists == tmp.exists)
+    m_existance == tmp.m_existance)
         return true;
     else
         return false;

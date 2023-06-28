@@ -1,36 +1,39 @@
 #include "filetracker.h"
+#include <iostream> // TODO: remove when signal-slot stuff with output is added
+
+using namespace std;
 
 FileTracker::FileTracker()
 {   
 }
 
-FileTracker::addFile(const QString dir)
+void FileTracker::addFile(const QString& dir)
 {
     FileState file_tmp = FileState(dir);
-    if (!this->contains(file_tmp))  // does not contain argument file
+    if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
-        std::cout << file_tmp.fileName << " was added to file tracker.";
+        cout << file_tmp.fileName().toStdString() << " was added to file tracker.";
             // TODO: move this to output.cpp
     }
     else
     {
-        std::cout << file_tmp.fileName << " was not added because it is already featured in the list.";
+        cout << file_tmp.fileName().toStdString() << " was not added because it is already featured in the list.";
             // TODO: move this to output.cpp
     }
 }
 
-FileTracker::removeFile(const QString dir)
+void FileTracker::removeFile(const QString& dir)
 {
     FileState file_tmp = FileState(dir);
-    if (this->contains(file_tmp))
+    if (m_files.contains(file_tmp))
     {
         m_files.removeOne(file_tmp);
-        std::cout << file_tmp.fileName << " was removed from file tracker.";
+        cout << file_tmp.fileName().toStdString() << " was removed from file tracker.";
     }
     else
     {
-        std::cout << file_tmp.fileName << " cannot be removed because it is not featured in the list.";
+        cout << file_tmp.fileName().toStdString() << " cannot be removed because it is not featured in the list.";
     }
 }
 
@@ -51,15 +54,23 @@ FileTracker::fileDeleted(FileState file)
 }
 */
 
-FileTracker::update()
+void FileTracker::update()
 {
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < m_files.length(); i++)
     {
         switch(m_files[i].update())
         {
-        case 1: std::cout << m_files[i].name() << " was deleted.";  // TODO: change to fileChanged signal
-        case 2: std::cout << m_files[i].name() << " was created.";
-        case 3: std::cout << m_files[i].name() << " was changed. Current size is " << m_files[i].size() << " bytes.";
+        case 1:
+            cout << m_files[i].fileName().toStdString() << " was deleted.";  // TODO: change to fileChanged signal
+            break;
+        case 2:
+            cout << m_files[i].fileName().toStdString() << " was created.";
+            break;
+        case 3:
+            cout << m_files[i].fileName().toStdString() << " was changed. Current size is " << m_files[i].size() << " bytes.";
+            break;
+        default:
+            break;
         }
     }
 }

@@ -4,18 +4,20 @@
 #include <QFileInfo>
 #include <QString>
 
-class FileState : QFileInfo
+class FileState : public QFileInfo
 {
 private:
     QString m_dir;
-    Uint64 m_size;
-    Bool m_existance;
+    quint64 m_size;
+    bool m_existance;
 public:
     FileState(const QString dir);
-    Uint64 getSize();
-    /// Bool exists();
-    Int update();
-    Bool operator== (const StateFile& tmp) const;
+    quint64 getSize();
+    bool getExistanceStatus();
+    //QString getFileName();    //TODO TBR
+
+    int update();
+    bool operator== (const FileState& tmp) const;
         // contains() from <QList> requires to have operator== described in its argument type.
 };
 
