@@ -6,6 +6,7 @@ FileState::FileState(const QString dir)
     QFileInfo file(dir);
     m_size = file.size();
     m_existance = file.exists();
+    m_name = file.fileName();
 }
 
 QString FileState::getFileDirectory()
@@ -18,6 +19,10 @@ quint64 FileState::getSize()
     return m_size;
 }
 
+QString FileState::getFileName()
+{
+    return m_name;
+}
 
 
 int FileState::update()

@@ -13,12 +13,12 @@ void FileTracker::addFile(const QString& dir)
     if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
-        cout << file_tmp.fileName().toStdString() << " was added to file tracker.\n";   //! fileName().toStdString() does not display name of the file. Research needed
+        cout << file_tmp.getFileName().toStdString() << " was added to file tracker.\n";   //! fileName().toStdString() does not display name of the file. Research needed
             // TODO: move this to output.cpp
     }
     else
     {
-        cout << file_tmp.fileName().toStdString() << " was not added because it is already featured in the list.\n";
+        cout << file_tmp.getFileName().toStdString() << " was not added because it is already featured in the list.\n";
             // TODO: move this to output.cpp
     }
 }
@@ -29,11 +29,11 @@ void FileTracker::removeFile(const QString& dir)
     if (m_files.contains(file_tmp))
     {
         m_files.removeOne(file_tmp);
-        cout << file_tmp.fileName().toStdString() << " was removed from file tracker.\n" ;
+        cout << file_tmp.getFileName().toStdString() << " was removed from file tracker.\n" ;
     }
     else
     {
-        cout << file_tmp.fileName().toStdString() << " cannot be removed because it is not featured in the list.\n";
+        cout << file_tmp.getFileName().toStdString() << " cannot be removed because it is not featured in the list.\n";
     }
 }
 
