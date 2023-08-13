@@ -13,12 +13,12 @@ void FileTracker::addFile(const QString& dir)
     if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
-        cout << file_tmp.fileName().toStdString() << " was added to file tracker.\n";   //! fileName().toStdString() does not display name of the file. Research needed
+        cout << file_tmp.getFileDirectory().toStdString() << " was added to file tracker.\n";   //! fileName().toStdString() does not display name of the file. Research needed
             // TODO: move this to output.cpp
     }
     else
     {
-        cout << file_tmp.fileName().toStdString() << " was not added because it is already featured in the list.\n";
+        cout << file_tmp.getFileDirectory().toStdString() << " was not added because it is already featured in the list.\n";
             // TODO: move this to output.cpp
     }
 }
@@ -29,11 +29,11 @@ void FileTracker::removeFile(const QString& dir)
     if (m_files.contains(file_tmp))
     {
         m_files.removeOne(file_tmp);
-        cout << file_tmp.fileName().toStdString() << " was removed from file tracker.\n" ;
+        cout << file_tmp.getFileDirectory().toStdString() << " was removed from file tracker.\n" ;
     }
     else
     {
-        cout << file_tmp.fileName().toStdString() << " cannot be removed because it is not featured in the list.\n";
+        cout << file_tmp.getFileDirectory().toStdString() << " cannot be removed because it is not featured in the list.\n";
     }
 }
 
@@ -61,13 +61,13 @@ void FileTracker::update()
         switch(m_files[i].update())
         {
         case 1:
-            cout << m_files[i].fileName().toStdString() << " was deleted.\n";  // TODO: change to fileChanged signal
+            cout << m_files[i].getFileDirectory().toStdString() << " was deleted.\n";  // TODO: change to fileChanged signal
             break;
         case 2:
-            cout << m_files[i].fileName().toStdString() << " was created.\n";
+            cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
             break;
         case 3:
-            cout << m_files[i].fileName().toStdString() << " was changed. Current size is " << m_files[i].size() << " bytes.\n";
+            cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
             break;
         default:
             break;
