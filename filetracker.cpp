@@ -13,8 +13,7 @@ void FileTracker::addFile(const QString& dir)
     if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
-        cout << file_tmp.getFileDirectory().toStdString() << " was added to file tracker.\n";   //! fileName().toStdString() does not display name of the file. Research needed
-            // TODO: move this to output.cpp
+        emit fileAdded(file_tmp);   // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization.
     }
     else
     {
@@ -28,8 +27,8 @@ void FileTracker::removeFile(const QString& dir)
     FileState file_tmp = FileState(dir);
     if (m_files.contains(file_tmp))
     {
-        m_files.removeOne(file_tmp);
-        cout << file_tmp.getFileDirectory().toStdString() << " was removed from file tracker.\n" ;
+        m_files.removeOne(file_tmp);    // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization.
+        emit fileRemoved(file_tmp);
     }
     else
     {
@@ -37,22 +36,22 @@ void FileTracker::removeFile(const QString& dir)
     }
 }
 
-/*
-FileTracker::fileChanged(FileState file)
-{
 
-}
+//FileTracker::fileChanged(FileState file)
+//{
 
-FileTracker::fileCreated(FileState file)
-{
+//}
 
-}
+//FileTracker::fileCreated(FileState file)
+//{
 
-FileTracker::fileDeleted(FileState file)
-{
+//}
 
-}
-*/
+//FileTracker::fileDeleted(FileState file)
+//{
+
+//}
+
 
 void FileTracker::update()
 {

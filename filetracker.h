@@ -15,9 +15,11 @@ public:
     void removeFile(const QString& dir);
     void update();
 signals:
-    fileChanged(FileState file);
-    fileCreated(FileState file);
-    fileDeleted(FileState file);
+    fileAdded(FileState file);
+    fileRemoved(FileState file);
+//    fileChanged(FileState file);
+//    fileCreated(FileState file);
+//    fileDeleted(FileState file);
 };
 
 #endif // FILETRACKER_H
