@@ -12,12 +12,12 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     FileTracker test_tracker = FileTracker();
     Output test_output(test_tracker);
-    test_tracker.addFile("C:/Users/lekks/Desktop/Labs3_2/TRPO/FileTracker_testfiles/1.txt");
-    test_tracker.addFile("C:/Users/lekks/Desktop/Labs3_2/TRPO/FileTracker_testfiles/1.txt");
-    test_tracker.removeFile("C:/Users/lekks/Desktop/Labs3_2/TRPO/FileTracker_testfiles/1.txt");
-    test_tracker.removeFile("C:/Users/lekks/Desktop/Labs3_2/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker.addFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker.addFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker.removeFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker.removeFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
 
-    test_tracker.addFile("C:/Users/lekks/Desktop/Labs3_2/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker.addFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
 
     QTimer timer;
     timer.setInterval(500);
