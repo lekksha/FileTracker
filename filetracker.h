@@ -16,7 +16,9 @@ public:
     void update();
 signals:
     fileAdded(FileState file);
+    fileNotAddedFeatured(FileState file);
     fileRemoved(FileState file);
+    fileNotRemovedNotFeatured(FileState file);
 //    fileChanged(FileState file);
 //    fileCreated(FileState file);
 //    fileDeleted(FileState file);

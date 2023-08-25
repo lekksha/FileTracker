@@ -10,6 +10,7 @@ FileTracker::FileTracker()
 void FileTracker::addFile(const QString& dir)
 {
     FileState file_tmp = FileState(dir);
+
     if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
@@ -17,8 +18,7 @@ void FileTracker::addFile(const QString& dir)
     }
     else
     {
-        cout << file_tmp.getFileDirectory().toStdString() << " was not added because it is already featured in the list.\n";
-            // TODO: move this to output.cpp
+        emit fileNotAddedFeatured(file_tmp);
     }
 }
 
@@ -32,7 +32,7 @@ void FileTracker::removeFile(const QString& dir)
     }
     else
     {
-        cout << file_tmp.getFileDirectory().toStdString() << " cannot be removed because it is not featured in the list.\n";
+        emit fileNotRemovedNotFeatured(file_tmp);
     }
 }
 
