@@ -14,13 +14,14 @@ public:
         connect(&m_tracker, &FileTracker::fileNotAddedFeatured, this, &Output::onFileNotAddedFeatured);
         connect(&m_tracker, &FileTracker::fileRemoved, this, &Output::onFileRemoved);
         connect(&m_tracker, &FileTracker::fileNotRemovedNotFeatured, this, &Output::onFileNotRemovedNotFeatured);
+        connect(&m_tracker, &FileTracker::fileChanged, this, &Output::onFileChanged);
     }
 public slots:
     void onFileAdded(FileState file);
     void onFileNotAddedFeatured(FileState file);
     void onFileRemoved(FileState file);
     void onFileNotRemovedNotFeatured(FileState file);
-    //onFileChanged(FileState file);    // Потом лучше заменить с Changed на Updated
+    void onFileChanged(FileState file);    // Потом лучше заменить с Changed на Updated
     //onFileCreated(FileState file);
     //onFileDeleted(FileState file);
 };

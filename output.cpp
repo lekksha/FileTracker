@@ -21,10 +21,10 @@ void Output::onFileNotRemovedNotFeatured(FileState file)
     std::cout << file.getFileDirectory().toStdString() << " cannot be removed because it is not featured in the list.\n";
 }
 
-//onFileChanged(FileState file)
-//{
-
-//}
+void Output::onFileChanged(FileState file)  // TODO: change to onFileUpdated
+{
+    std::cout << file.getFileDirectory().toStdString() << " was updated. Current size is "<< file.getSize() << " bytes.\n";
+}
 
 //onFileCreated(FileState file)
 //{

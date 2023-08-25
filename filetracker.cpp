@@ -14,7 +14,7 @@ void FileTracker::addFile(const QString& dir)
     if (!m_files.contains(file_tmp))  // does not contain argument file
     {
         m_files.append(file_tmp);
-        emit fileAdded(file_tmp);   // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization.
+        emit fileAdded(file_tmp);   // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization?
     }
     else
     {
@@ -27,7 +27,7 @@ void FileTracker::removeFile(const QString& dir)
     FileState file_tmp = FileState(dir);
     if (m_files.contains(file_tmp))
     {
-        m_files.removeOne(file_tmp);    // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization.
+        m_files.removeOne(file_tmp);    // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization?
         emit fileRemoved(file_tmp);
     }
     else
@@ -37,17 +37,12 @@ void FileTracker::removeFile(const QString& dir)
 }
 
 
-//FileTracker::fileChanged(FileState file)
+//void FileTracker::fileCreated(FileState file)
 //{
 
 //}
 
-//FileTracker::fileCreated(FileState file)
-//{
-
-//}
-
-//FileTracker::fileDeleted(FileState file)
+//void FileTracker::fileDeleted(FileState file)
 //{
 
 //}
@@ -66,7 +61,8 @@ void FileTracker::update()
             cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
             break;
         case 3:
-            cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
+            emit fileChanged(m_files[i]);
+            //cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
             break;
         default:
             break;

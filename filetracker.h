@@ -19,7 +19,7 @@ signals:
     void fileNotAddedFeatured(FileState file);
     void fileRemoved(FileState file);
     void fileNotRemovedNotFeatured(FileState file);
-//    fileChanged(FileState file);
+    void fileChanged(FileState file);
 //    fileCreated(FileState file);
 //    fileDeleted(FileState file);
 };
