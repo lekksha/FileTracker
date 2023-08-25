@@ -31,7 +31,7 @@ void Output::onFileCreated(FileState file)
     std::cout << file.getFileDirectory().toStdString() << " was created. Current size is "<< file.getSize() << " bytes.\n";
 }
 
-//onFileDeleted(FileState file)
-//{
-
-//}
+void Output::onFileDeleted(FileState file)
+{
+    std::cout << file.getFileDirectory().toStdString() << " was deleted.\n";
+}

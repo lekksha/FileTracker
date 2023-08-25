@@ -21,7 +21,7 @@ signals:
     void fileNotRemovedNotFeatured(FileState file);
     void fileChanged(FileState file);
     void fileCreated(FileState file);
-//    fileDeleted(FileState file);
+    void fileDeleted(FileState file);
 };
 
 #endif // FILETRACKER_H

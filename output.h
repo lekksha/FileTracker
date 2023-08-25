@@ -17,6 +17,7 @@ public:
 
         connect(&m_tracker, &FileTracker::fileChanged, this, &Output::onFileChanged);
         connect(&m_tracker, &FileTracker::fileCreated, this, &Output::onFileCreated);
+        connect(&m_tracker, &FileTracker::fileDeleted, this, &Output::onFileDeleted);
     }
 public slots:
     void onFileAdded(FileState file);
@@ -25,7 +26,7 @@ public slots:
     void onFileNotRemovedNotFeatured(FileState file);
     void onFileChanged(FileState file);    // Потом лучше заменить с Changed на Updated
     void onFileCreated(FileState file);
-    //onFileDeleted(FileState file);
+    void onFileDeleted(FileState file);
 };
 
 #endif // OUTPUT_H

@@ -11,7 +11,7 @@ void FileTracker::addFile(const QString& dir)
 {
     FileState file_tmp = FileState(dir);
 
-    if (!m_files.contains(file_tmp))  // does not contain argument file
+    if (!m_files.contains(file_tmp))  // if does not contain argument file
     {
         m_files.append(file_tmp);
         emit fileAdded(file_tmp);   // TODO: I dont need to give whole FileState object like I do now. Directory and size is enough. Room for optimization?
@@ -51,7 +51,8 @@ void FileTracker::update()
         switch(m_files[i].update())
         {
         case 1:
-            cout << m_files[i].getFileDirectory().toStdString() << " was deleted.\n";  // TODO: change to fileChanged signal
+            emit fileDeleted(m_files[i]);
+//            cout << m_files[i].getFileDirectory().toStdString() << " was deleted or renamed.\n";  // TODO: change to fileChanged signal
             break;
         case 2:
             emit fileCreated(m_files[i]);
