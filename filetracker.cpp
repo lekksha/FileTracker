@@ -37,10 +37,6 @@ void FileTracker::removeFile(const QString& dir)
 }
 
 
-//void FileTracker::fileCreated(FileState file)
-//{
-
-//}
 
 //void FileTracker::fileDeleted(FileState file)
 //{
@@ -58,11 +54,12 @@ void FileTracker::update()
             cout << m_files[i].getFileDirectory().toStdString() << " was deleted.\n";  // TODO: change to fileChanged signal
             break;
         case 2:
-            cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
+            emit fileCreated(m_files[i]);
+//            cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
             break;
         case 3:
             emit fileChanged(m_files[i]);
-            //cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
+//                cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
             break;
         default:
             break;
