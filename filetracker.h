@@ -15,10 +15,10 @@ public:
     void removeFile(const QString& dir);
     void update();
 signals:
-    fileAdded(FileState file);
-    fileNotAddedFeatured(FileState file);
-    fileRemoved(FileState file);
-    fileNotRemovedNotFeatured(FileState file);
+    void fileAdded(FileState file);
+    void fileNotAddedFeatured(FileState file);
+    void fileRemoved(FileState file);
+    void fileNotRemovedNotFeatured(FileState file);
 //    fileChanged(FileState file);
 //    fileCreated(FileState file);
 //    fileDeleted(FileState file);
