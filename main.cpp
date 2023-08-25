@@ -2,7 +2,6 @@
 #include <QTimer>
 #include <iostream>
 #include "filetracker.h"
-#include "filestate.h"
 #include "output.h"
 
 using namespace std;

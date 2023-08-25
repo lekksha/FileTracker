@@ -1,5 +1,4 @@
 #include "filetracker.h"
-#include <iostream> // TODO: remove when signal-slot stuff with output is added
 
 using namespace std;
 
@@ -36,14 +35,6 @@ void FileTracker::removeFile(const QString& dir)
     }
 }
 
-
-
-//void FileTracker::fileDeleted(FileState file)
-//{
-
-//}
-
-
 void FileTracker::update()
 {
     for (int i = 0; i < m_files.length(); i++)
@@ -52,14 +43,14 @@ void FileTracker::update()
         {
         case 1:
             emit fileDeleted(m_files[i]);
-//            cout << m_files[i].getFileDirectory().toStdString() << " was deleted or renamed.\n";  // TODO: change to fileChanged signal
+//            cout << m_files[i].getFileDirectory().toStdString() << " was deleted or renamed.\n";
             break;
         case 2:
             emit fileCreated(m_files[i]);
 //            cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
             break;
         case 3:
-            emit fileChanged(m_files[i]);
+            emit fileEdited(m_files[i]);
 //                cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
             break;
         default:

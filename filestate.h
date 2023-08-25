@@ -15,7 +15,6 @@ public:
     QString getFileDirectory();
     quint64 getSize();
     bool getExistanceStatus();
-    //QString getFileName();    //TODO TBR
 
     int update();
     bool operator== (const FileState& tmp) const;
