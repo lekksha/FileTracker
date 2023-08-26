@@ -18,6 +18,7 @@ public:
         connect(&m_tracker, &FileTracker::fileEdited, this, &Output::onFileEdited);
         connect(&m_tracker, &FileTracker::fileCreated, this, &Output::onFileCreated);
         connect(&m_tracker, &FileTracker::fileDeleted, this, &Output::onFileDeleted);
+
     }
 public slots:
     void onFileAdded(FileState file);

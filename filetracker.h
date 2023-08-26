@@ -7,10 +7,12 @@
 class FileTracker : public QObject
 {
     Q_OBJECT
+    static FileTracker* m_instance;
 public:
     QList<FileState> m_files;
 
     FileTracker();
+    static FileTracker* getInstance();
     void addFile(const QString& dir);
     void removeFile(const QString& dir);
     void update();

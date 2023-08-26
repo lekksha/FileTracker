@@ -2,8 +2,20 @@
 
 using namespace std;
 
+
 FileTracker::FileTracker()
 {   
+}
+
+FileTracker* FileTracker::m_instance = nullptr;
+
+FileTracker* FileTracker::getInstance()
+{
+    if (m_instance == nullptr)
+    {
+        m_instance = new FileTracker;
+    }
+    return m_instance;
 }
 
 void FileTracker::addFile(const QString& dir)
