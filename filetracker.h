@@ -11,7 +11,6 @@ class FileTracker : public QObject
 public:
     QList<FileState> m_files;
 
-    FileTracker();
     static FileTracker* getInstance();
     void addFile(const QString& dir);
     void removeFile(const QString& dir);

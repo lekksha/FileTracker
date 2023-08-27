@@ -3,10 +3,6 @@
 using namespace std;
 
 
-FileTracker::FileTracker()
-{   
-}
-
 FileTracker* FileTracker::m_instance = nullptr;
 
 FileTracker* FileTracker::getInstance()
