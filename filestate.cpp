@@ -13,7 +13,7 @@ QString FileState::getFileDirectory()
     return m_dir;
 }
 
-quint64 FileState::getSize()
+qint64 FileState::getSize()
 {
     return m_size;
 }

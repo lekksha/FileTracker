@@ -8,12 +8,12 @@ class FileState : public QFileInfo
 {
 private:
     QString m_dir;
-    quint64 m_size;
+    qint64 m_size;
     bool m_existance;
 public:
     FileState(const QString dir);
     QString getFileDirectory();
-    quint64 getSize();
+    qint64 getSize();
     bool getExistanceStatus();
 
     int update();

@@ -3,7 +3,7 @@
 using namespace std;
 
 FileTracker::FileTracker()
-{   
+{
 }
 
 void FileTracker::addFile(const QString& dir)
