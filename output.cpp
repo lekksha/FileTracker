@@ -1,6 +1,17 @@
 #include "output.h"
 #include <iostream>
 
+Output* Output::m_instance = nullptr;
+
+Output* Output::getInstance(FileTracker &tracker)
+{
+    if (m_instance == nullptr)
+    {
+        m_instance = new Output(tracker);
+    }
+    return m_instance;
+}
+
 void Output::onFileAdded(FileState file)
 {
     std::cout << file.getFileDirectory().toStdString() << " was added to file tracker.\n";
