@@ -49,7 +49,7 @@ int FileState::update()
 bool FileState::operator==(const FileState &tmp) const
 {
     if
-    (m_dir == tmp.m_dir &&     // TODO: decide whether directory comparison is enough
+    (m_dir == tmp.m_dir &&
     m_size == tmp.m_size &&
     m_existance == tmp.m_existance)
         return true;
