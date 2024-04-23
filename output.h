@@ -24,13 +24,13 @@ public:
 
     static Output* getInstance(FileTracker &m_tracker);
 public slots:
-    void onFileAdded(FileState file);
-    void onFileNotAddedFeatured(FileState file);
-    void onFileRemoved(FileState file);
-    void onFileNotRemovedNotFeatured(FileState file);
-    void onFileEdited(FileState file);
-    void onFileCreated(FileState file);
-    void onFileDeleted(FileState file);
+    void onFileAdded(FileState &file);
+    void onFileNotAddedFeatured(FileState &file);
+    void onFileRemoved(FileState &file);
+    void onFileNotRemovedNotFeatured(FileState &file);
+    void onFileEdited(FileState &file);
+    void onFileCreated(FileState &file);
+    void onFileDeleted(FileState &file);
 };
 
 #endif // OUTPUT_H
