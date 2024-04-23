@@ -35,4 +35,4 @@
 Для постоянного обновления используем `QTimer`
 
 ## UML-диаграмма.
-![alt text](https://github.com/lekksha/FileTracker/blob/main/UML.png)
+![alt text](https://github.com/lekksha/FileTracker/blob/main/UML.jpg)
