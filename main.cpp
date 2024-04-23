@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     test_tracker->removeFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
 
     test_tracker->addFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/1.txt");
+    test_tracker->addFile("C:/Users/lekks/TSU/semester 6/TRPO/FileTracker_testfiles/2.txt");
     //
 
 
