@@ -1,7 +1,5 @@
 #include "filetracker.h"
 
-using namespace std;
-
 
 FileTracker* FileTracker::m_instance = nullptr;
 
@@ -52,17 +50,17 @@ void FileTracker::update()
         case 1:
             emit fileDeleted(m_files[i]);
 //            cout << m_files[i].getFileDirectory().toStdString() << " was deleted or renamed.\n";
-            break;
+            continue;
         case 2:
             emit fileCreated(m_files[i]);
 //            cout << m_files[i].getFileDirectory().toStdString() << " was created.\n";
-            break;
+            continue;
         case 3:
             emit fileEdited(m_files[i]);
 //                cout << m_files[i].getFileDirectory().toStdString() << " was changed. Current size is " << m_files[i].getSize() << " bytes.\n";    // TODO: fix - outputs incorrect info about size
-            break;
+            continue;
         default:
-            break;
+            continue;
         }
     }
 }
