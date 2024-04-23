@@ -8,8 +8,8 @@
 class Output : public QObject
 {
     Q_OBJECT
-public:
-    Output(FileTracker &m_tracker){ 
+    static Output* m_instance;
+    Output(FileTracker &m_tracker){
         connect(&m_tracker, &FileTracker::fileAdded, this, &Output::onFileAdded);
         connect(&m_tracker, &FileTracker::fileNotAddedFeatured, this, &Output::onFileNotAddedFeatured);
         connect(&m_tracker, &FileTracker::fileRemoved, this, &Output::onFileRemoved);
@@ -18,7 +18,11 @@ public:
         connect(&m_tracker, &FileTracker::fileEdited, this, &Output::onFileEdited);
         connect(&m_tracker, &FileTracker::fileCreated, this, &Output::onFileCreated);
         connect(&m_tracker, &FileTracker::fileDeleted, this, &Output::onFileDeleted);
+
     }
+public:
+
+    static Output* getInstance(FileTracker &m_tracker);
 public slots:
     void onFileAdded(FileState file);
     void onFileNotAddedFeatured(FileState file);
